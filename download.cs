@@ -5,8 +5,20 @@ using UnityEngine;
 public class Bypass : MonoBehaviour
 {
 	void Start(){
-		values = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, string>>(
-		new WebClient().DownloadString("https://raw.githubusercontent.com/DeftSolutions-dev/DesireProRust/main/bypass.json").ToString());
+	
+                                var webClient = new WebClient(); 
+                                 webClient.DownloadFile(new Uri("https://raw.githubusercontent.com/DeftSolutions-dev/DesireProRust/main/bypass.json"), Path.Combine(Path.GetTempPath(), "Bypass.json"));
+	
+
+	            values = JsonConvert.DeserializeObject<Dictionary<string, object>>(File.ReadAllText(Path.Combine(Path.GetTempPath(), "Bypass.json")), new JsonSerializerSettings 
+             { 
+                 Formatting = Formatting.Indented 
+             });
+
+	
+
+
+		
 		foreach (KeyValuePair<string, string> keyValuePair in values)
 		{
 			if (keyValuePair.Key.Contains("UInt8"))
