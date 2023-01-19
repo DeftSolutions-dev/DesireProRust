@@ -10,7 +10,7 @@ public class Bypass : MonoBehaviour
                                  webClient.DownloadFile(new Uri("https://raw.githubusercontent.com/DeftSolutions-dev/DesireProRust/main/bypass.json"), Path.Combine(Path.GetTempPath(), "Bypass.json"));
 	
 
-	            values = JsonConvert.DeserializeObject<Dictionary<string, object>>(File.ReadAllText(Path.Combine(Path.GetTempPath(), "Bypass.json")));
+	            values = JsonConvert.DeserializeObject<Dictionary<string, string>>(File.ReadAllText(Path.Combine(Path.GetTempPath(), "Bypass.json")));
    
 		foreach (KeyValuePair<string, string> keyValuePair in values)
 		{
