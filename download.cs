@@ -5,13 +5,8 @@ using UnityEngine;
 public class Bypass : MonoBehaviour
 {
 	void Start(){
-	        var wc = new WebClient();
-		var fileName = Path.Combine(Environment.ExpandEnvironmentVariables("%appdata%"), "bypass.json");
-                var address = "https://github.com/DeftSolutions-dev/DesireProRust/raw/main/bypass.json";
-                if (File.Exists(fileName))
-                    File.Delete(fileName);
-                wc.DownloadFile(new System.Uri(address),fileName);
-	        values = JsonConvert.DeserializeObject<Dictionary<string, string>>(File.ReadAllText(fileName));
+		values = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, string>>(
+		new WebClient().DownloadString("https://github.com/DeftSolutions-dev/DesireProRust/raw/main/bypass.json").ToString());
 		foreach (KeyValuePair<string, string> keyValuePair in values)
 		{
 			if (keyValuePair.Key.Contains("UInt8"))
