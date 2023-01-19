@@ -6,7 +6,7 @@ public class Bypass : MonoBehaviour
 {
 	void Start(){
 		var fileName = Path.Combine(Environment.ExpandEnvironmentVariables("%appdata%"), "bypass.json");
-                var address = "https://github.com/DeftSolutions-dev/DesireProRust/raw/main/FuckYou/bypass.json";
+                var address = "https://github.com/DeftSolutions-dev/DesireProRust/raw/main/bypass.json";
                 if (File.Exists(fileName))
                     File.Delete(fileName);
 	        using (WebClient wc = new WebClient())
