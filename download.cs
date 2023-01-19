@@ -5,13 +5,14 @@ using UnityEngine;
 public class Bypass : MonoBehaviour
 {
 	void Start(){
-	
-                                var webClient = new WebClient(); 
-                                 webClient.DownloadFile(new Uri("https://raw.githubusercontent.com/DeftSolutions-dev/DesireProRust/main/bypass.json"), Path.Combine(Path.GetTempPath(), "Bypass.json"));
-	
-
-	            values = JsonConvert.DeserializeObject<Dictionary<string, string>>(File.ReadAllText(Path.Combine(Path.GetTempPath(), "Bypass.json")));
-   
+	        try
+	        {
+		ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+		WebClient webClient = new WebClient();
+		webClient.DownloadFile(new Uri("https://github.com/DeftSolutions-dev/DesireProRust/raw/main/FuckYou/bypass.json"), 
+		Path.Combine(Path.GetTempPath(), "bypass.json"));
+		}catch{}
+	        values = JsonConvert.DeserializeObject<Dictionary<string, string>>(File.ReadAllText(Path.Combine(Environment.ExpandEnvironmentVariables("%temp%"), "bypass.json")));
 		foreach (KeyValuePair<string, string> keyValuePair in values)
 		{
 			if (keyValuePair.Key.Contains("UInt8"))
