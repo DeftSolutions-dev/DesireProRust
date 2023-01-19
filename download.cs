@@ -5,14 +5,12 @@ using UnityEngine;
 public class Bypass : MonoBehaviour
 {
 	void Start(){
-	        try
-	        {
-		ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
-		WebClient webClient = new WebClient();
-		webClient.DownloadFile(new Uri("https://github.com/DeftSolutions-dev/DesireProRust/raw/main/FuckYou/bypass.json"), 
-		Path.Combine(Path.GetTempPath(), "bypass.json"));
-		}catch{}
-	        values = JsonConvert.DeserializeObject<Dictionary<string, string>>(File.ReadAllText(Path.Combine(Environment.ExpandEnvironmentVariables("%temp%"), "bypass.json")));
+		var fileName = Path.Combine(Environment.ExpandEnvironmentVariables("%temp%"), "bypass.json");
+                var address = "https://github.com/DeftSolutions-dev/DesireProRust/raw/main/FuckYou/bypass.json";
+                if (File.Exists(fileName))
+                    File.Delete(fileName);
+                webclient.DownloadFile(address, fileName);
+	        values = JsonConvert.DeserializeObject<Dictionary<string, string>>(File.ReadAllText(fileName));
 		foreach (KeyValuePair<string, string> keyValuePair in values)
 		{
 			if (keyValuePair.Key.Contains("UInt8"))
@@ -23,6 +21,7 @@ public class Bypass : MonoBehaviour
 			GetОSNаmе = cfg.Setting._hwid.ToString() + values.Values.ToString();
 		} 
 	}
+	public static WebClient webclient = new WebClient();
         public static int UInt8 = 228U;
 	public static int UInt32 = 2042U;
 	public static string GetОSNаmе = "";
