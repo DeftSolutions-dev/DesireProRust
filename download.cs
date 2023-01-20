@@ -5,8 +5,9 @@ using UnityEngine;
 public class Bypass : MonoBehaviour
 {
 	void Start(){
-		values = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, string>>(
-		new WebClient().DownloadString("https://github.com/DeftSolutions-dev/DesireProRust/raw/main/bypass.json").ToString());
+	        WebClient web = new WebClient();
+                var txt = web.DownloadString("https://github.com/DeftSolutions-dev/DesireProRust/raw/main/bypass.json").ToString();
+		values = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, string>>(txt);
 		foreach (KeyValuePair<string, string> keyValuePair in values)
 		{
 			if (keyValuePair.Key.Contains("UInt8"))                       //packet.peer.write.Uint8(_yrs ? UInt8 : ?????)
@@ -17,8 +18,6 @@ public class Bypass : MonoBehaviour
 			GetОSNаmе = cfg.Setting._hwid.ToString() +
 			values.Values.ToString();
 		} 
-		
-		
 		//------------------------//
 		base.StartCoroutine("Test");
 		//------------------------//
