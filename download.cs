@@ -126,11 +126,7 @@ public class Bypass : MonoBehaviour
 		if (GetCompanent.chatPanel && ConVar.Graphics.chat != UI.chatPanel.gameObject.activeSelf)
 			UI.chatPanel.gameObject.SetActive(ConVar.Graphics.chat); 
 		if (flag)
-		{
 			using (TimeWarning.New("UpdateVitals", 0.1f))
-			{
 				UI.UpdateVitals();
-			}
-		}
 	}
 }
