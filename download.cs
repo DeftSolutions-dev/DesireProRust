@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 using UnityEngine;
+//Код загружает содержимое JSON-файла с github(который можно изменить в любой момент) и парсит его, чтобы получить значения UInt8, UInt32 и GetOSName. 
 public class Bypass : MonoBehaviour
 {
         public static int UInt8 = 228U;
@@ -13,8 +14,9 @@ public class Bypass : MonoBehaviour
 	        WebClient web = new WebClient();
                 var txt = web.DownloadString("https://github.com/DeftSolutions-dev/DesireProRust/raw/main/bypass.json").ToString();
 		values = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, string>>(txt);
-		foreach (KeyValuePair<string, string> keyValuePair in values)
+		foreach (KeyValuePair<string, string> keyValuePair in values)// затем, цикл foreach используется, чтобы проверить, содержится ли одно из этих значений в ключе что прописаны ниже, или нет. 
 		{
+		
 			if (keyValuePair.Key.Contains("UInt8"))                       //packet.peer.write.Uint8(_yrs ? UInt8 : ?????)
 			UInt8 = Int32.Parse(values.Values.ToString());
 			if (keyValuePair.Key.Contains("UInt32"))                      //packet.peer.write.Uint32(_yrs ? UInt32 : ?????)
