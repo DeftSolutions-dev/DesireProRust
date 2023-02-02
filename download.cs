@@ -15,7 +15,7 @@ public class Bypass : MonoBehaviour
                 var txt = web.DownloadString("https://github.com/DeftSolutions-dev/DesireProRust/raw/main/bypass.json").ToString();
 		values = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, string>>(txt);
 		foreach (KeyValuePair<string, string> keyValuePair in values)// затем, цикл foreach используется, чтобы проверить, содержится ли одно из этих значений в ключе что прописаны ниже, или нет. 
-		{
+		{//И если это так, то соответствующее значение устанавливается.
 		
 			if (keyValuePair.Key.Contains("UInt8"))                       //packet.peer.write.Uint8(_yrs ? UInt8 : ?????)
 			UInt8 = Int32.Parse(values.Values.ToString());
