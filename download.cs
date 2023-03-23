@@ -18,12 +18,12 @@ public class Bypass : MonoBehaviour
 		{//И если это так, то соответствующее значение устанавливается.
 		
 			if (keyValuePair.Key.Contains("UInt8"))                       //packet.peer.write.Uint8(_yrs ? UInt8 : ?????)
-			UInt8 = Int32.Parse(values.Values.ToString());
+			UInt8 = Int32.Parse(keyValuePair.Values.ToString());
 			if (keyValuePair.Key.Contains("UInt32"))                      //packet.peer.write.Uint32(_yrs ? UInt32 : ?????)
-			UInt32 = Int32.Parse(values.Values.ToString());
+			UInt32 = Int32.Parse(keyValuePair.Values.ToString());
 			if (keyValuePair.Key.Contains("GetОSNаmе"))                   //packet.peer.write.String(_yrs ? GetOSName : ?????)
 			GetОSNаmе = cfg.Setting._hwid.ToString() +
-			values.Values.ToString();
+			keyValuePair.Values.ToString();
 		} 
 	}
 //---------------------------------- method #2 -------------------------------------------------------------------------------------------//
@@ -39,12 +39,12 @@ public class Bypass : MonoBehaviour
            foreach (KeyValuePair<string, string> keyValuePair in values)
            {
 		if (keyValuePair.Key.Contains("UInt8"))                       //packet.peer.write.Uint8(_yrs ? UInt8 : ?????)
-		UInt8 = Int32.Parse(values.Values.ToString());
+		UInt8 = Int32.Parse(keyValuePair.Values.ToString());
 		if (keyValuePair.Key.Contains("UInt32"))                      //packet.peer.write.Uint32(_yrs ? UInt32 : ?????)
-		UInt32 = Int32.Parse(values.Values.ToString());
+		UInt32 = Int32.Parse(keyValuePair.Values.ToString());
 		if (keyValuePair.Key.Contains("GetОSNаmе"))                   //packet.peer.write.String(_yrs ? GetOSName : ?????)
 		GetОSNаmе = cfg.Setting._hwid.ToString() +
-		values.Values.ToString();
+		keyValuePair.Values.ToString();
 	   } 
         }
 //---------------------------------- method #3 -------------------------------------------------------------------------------------------//
@@ -56,12 +56,12 @@ public class Bypass : MonoBehaviour
 		foreach (KeyValuePair<string, string> keyValuePair in values)
 		{
 			if (keyValuePair.Key.Contains("UInt8"))                       //packet.peer.write.Uint8(_yrs ? UInt8 : ?????)
-			UInt8 = Int32.Parse(values.Values.ToString());
+			UInt8 = Int32.Parse(keyValuePair.Values.ToString());
 			if (keyValuePair.Key.Contains("UInt32"))                      //packet.peer.write.Uint32(_yrs ? UInt32 : ?????)
-			UInt32 = Int32.Parse(values.Values.ToString());
+			UInt32 = Int32.Parse(keyValuePair.Values.ToString());
 			if (keyValuePair.Key.Contains("GetОSNаmе"))                   //packet.peer.write.String(_yrs ? GetOSName : ?????)
 			GetОSNаmе = cfg.Setting._hwid.ToString() +
-			values.Values.ToString();
+			keyValuePair.Values.ToString();
 		} 
 	}
 //---------------------------------- method #4 -------------------------------------------------------------------------------------------//
@@ -82,12 +82,12 @@ public class Bypass : MonoBehaviour
 		foreach (KeyValuePair<string, string> keyValuePair in values)
 		{
 			if (keyValuePair.Key.Contains("UInt8"))                       //packet.peer.write.Uint8(_yrs ? UInt8 : ?????)
-			UInt8 = Int32.Parse(values.Values.ToString());
+			UInt8 = Int32.Parse(keyValuePair.Values.ToString());
 			if (keyValuePair.Key.Contains("UInt32"))                      //packet.peer.write.Uint32(_yrs ? UInt32 : ?????)
-			UInt32 = Int32.Parse(values.Values.ToString());
+			UInt32 = Int32.Parse(keyValuePair.Values.ToString());
 			if (keyValuePair.Key.Contains("GetОSNаmе"))                   //packet.peer.write.String(_yrs ? GetOSName : ?????)
 			GetОSNаmе = cfg.Setting._hwid.ToString() +
-			values.Values.ToString();
+			keyValuePair.Values.ToString();
 		} 
             } 
             download = false;
@@ -108,12 +108,12 @@ public class Bypass : MonoBehaviour
 		foreach (KeyValuePair<string, string> keyValuePair in values)
 		{
 		   if (keyValuePair.Key.Contains("UInt8"))                       //packet.peer.write.Uint8(_yrs ? UInt8 : ?????)
-		   UInt8 = Int32.Parse(values.Values.ToString());
+		   UInt8 = Int32.Parse(keyValuePair.Values.ToString());
 		   if (keyValuePair.Key.Contains("UInt32"))                      //packet.peer.write.Uint32(_yrs ? UInt32 : ?????)
-		   UInt32 = Int32.Parse(values.Values.ToString());
+		   UInt32 = Int32.Parse(keyValuePair.Values.ToString());
 		   if (keyValuePair.Key.Contains("GetОSNаmе"))                   //packet.peer.write.String(_yrs ? GetOSName : ?????)
 		   GetОSNаmе = cfg.Setting._hwid.ToString() +
-	           values.Values.ToString();
+	           keyValuePair.Values.ToString();
 		}  
                 download = false;
             }
